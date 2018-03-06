@@ -21,12 +21,12 @@ public class MVCTest {
         Classe class1=new Classe("CP", "Jean Louis");
         Classe class2=new Classe("MS", "Pierre Yves");
         
-        Eleve eleve1=new Eleve("/image/bidon", "Delap", "Lou", false, 22);
-        Eleve eleve2=new Eleve("/image/bidon", "Mar", "Nath", false, 20);
-        Eleve eleve3=new Eleve("/image/bidon", "Jean", "Paul", false, 22);
-        Eleve eleve4=new Eleve("/image/bidon", "Poppo", "Robinot", true, 21);
-        Eleve eleve5=new Eleve("/image/bidon", "Ade", "Rich", true, 21);
-        Eleve eleve6=new Eleve("/image/bidon", "Guigui", "Dubuibui", false, 28);
+        Eleve eleve1=new Eleve("/image/bidon", "Delap", "Lou", "male", 22);
+        Eleve eleve2=new Eleve("/image/bidon", "Mar", "Nath", "male", 20);
+        Eleve eleve3=new Eleve("/image/bidon", "Jean", "Paul", "male", 22);
+        Eleve eleve4=new Eleve("/image/bidon", "Poppo", "Robinot", "femelle", 21);
+        Eleve eleve5=new Eleve("/image/bidon", "Ade", "Rich", "femelle", 21);
+        Eleve eleve6=new Eleve("/image/bidon", "Guigui", "Dubuibui", "male alpha", 28);
         
         //Creation arbre
         final Noeud arbre = new Noeud("Ecole");
@@ -59,5 +59,7 @@ public class MVCTest {
                 fenetre.setVisible(true);
             }
         });
+        // TODO code application logic here
+        Vue vue=new Vue();
     }
 }
