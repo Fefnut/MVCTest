@@ -20,9 +20,7 @@ public class PanelFormCl extends JPanel{
     private JButton save;
     private Classe c;
     
-    public PanelFormCl(){
-        c = new Classe("CM1","M. Girard",163);
-        
+    public PanelFormCl(Classe c){
         JLabel lniveau=new JLabel("Nom");
         JLabel lprof=new JLabel("Prénom");
         JLabel lnbEl=new JLabel("Nombre d'élèves");

@@ -20,7 +20,7 @@ public class Tableau extends AbstractTableModel {
  
     public Tableau() {
         super();
-        Eleve elev = new Eleve("", "", "", "", 0);
+        Eleve elev = new Eleve("","", "", "", "");
         for (int i = 0; i<3; i++){
             this.addEleve(elev);
         }
@@ -67,12 +67,15 @@ public class Tableau extends AbstractTableModel {
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
     
-    public void showClass (Noeud laClasse, Noeud racine){
-        int nbEleve = laClasse.getNbfils();
+    public void showClass (Noeud leNoeud, boolean feuille){
         Eleve eleveTemp;
         eleves.clear();
+        if (feuille){
+            leNoeud=leNoeud.getFather();
+        }
+        int nbEleve = leNoeud.getNbfils();
         for (int i=0; i<nbEleve; i++){
-            eleveTemp = (Eleve)laClasse.getEnfantNum(i).getContenu();
+            eleveTemp = (Eleve)leNoeud.getEnfantNum(i).getContenu();
             System.out.println(eleveTemp);
             eleves.add(eleveTemp);
         }

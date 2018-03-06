@@ -16,15 +16,18 @@ import java.util.ArrayList;
 public class Noeud {
     private final Object contenu;
     private final ArrayList<Noeud> fils;
+    private Noeud pere;
     private String newLine;
 
     public Noeud(Object cont) {
         newLine = System.getProperty("line.separator");
         this.contenu = cont;
         this.fils = new ArrayList<Noeud>();
+        this.pere=null;
     }
     
     public void addNode(Noeud neuneu){
+        neuneu.addFather(this);
         this.fils.add(neuneu);
     }
     
@@ -69,5 +72,13 @@ public class Noeud {
             }
         }
         return toReturn;
+    }
+    
+    private void addFather (Noeud papa){
+        this.pere = papa;
+    }
+    
+    public Noeud getFather (){
+        return this.pere;
     }
 }
