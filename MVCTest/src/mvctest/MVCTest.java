@@ -48,40 +48,8 @@ public class MVCTest {
         
         // affichage
         System.out.println(arbre.sousArbre());
-         
-        // création de l'adaptateur, pour avoir un TreeModel sur l'arbre
-        final TreeModel modele = new Arborescence(arbre);
-         
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                // création et affichage de la fenetre avec un JTree affichant les
-                // données de 'arbre'
-                // NB : le JTree fait simplement référence au modèle
-                JFrame fenetre = new JFrame("Test arbres");
-                fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                JTree treetree = new JTree(modele);
-                fenetre.add(new JScrollPane(treetree), BorderLayout.CENTER);
-                treetree.addTreeSelectionListener(new TreeSelectionListener() {
-                    @Override
-                    public void valueChanged(TreeSelectionEvent e) {
-                             Noeud node = (Noeud)treetree.getLastSelectedPathComponent();
-
-    /* if nothing is selected */ 
-        if (node.getContenu() == "Ecole"){
-            System.out.println("Racine");
-        }else if (node.isFeuille()){
-            System.out.println("Feuille");
-        }else{
-            System.out.println("Noeud");
-        }
-    }
-});
-                fenetre.pack();
-                fenetre.setVisible(true);
-            }
-        });
         
-        Vue vue = new Vue();
+        Vue vue = new Vue(arbre);
 
     }
 }
