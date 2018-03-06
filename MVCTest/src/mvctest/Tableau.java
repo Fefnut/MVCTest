@@ -13,16 +13,16 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Nathan
  */
-public class Test extends AbstractTableModel {
+public class Tableau extends AbstractTableModel {
     private final List<Eleve> eleves = new ArrayList<Eleve>();
  
     private final String[] entetes = {"Icone", "Nom", "Prenom", "Sexe", "Age"};
  
-    public Test() {
+    public Tableau() {
         super();
  
-        eleves.add(new Eleve("/resources", "MARY","Nathan",false,20));
-        eleves.add(new Eleve("/resources", "JEAN","Paul", false,22));
+        eleves.add(new Eleve("/resources", "MARY","Nathan","Garcon",20));
+        eleves.add(new Eleve("/resources", "JEAN","Paul", "Garcon",22));
     }
  
     public int getRowCount() {
@@ -46,7 +46,7 @@ public class Test extends AbstractTableModel {
             case 2:
                 return eleves.get(rowIndex).getPrenom();
             case 3:
-                return eleves.get(rowIndex).isIsfille();
+                return eleves.get(rowIndex).getSexe();
             case 4:
                 return eleves.get(rowIndex).getAge();
             default:

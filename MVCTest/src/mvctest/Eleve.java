@@ -10,15 +10,14 @@ package mvctest;
  * @author Nathan
  */
 public class Eleve {
-    private String icone,nom,prenom;
-    private boolean isfille;
+    private String icone,nom,prenom,sexe;
     private int age;
 
-    public Eleve(String icone, String nom, String prenom, boolean isfille, int age) {
+    public Eleve(String icone, String nom, String prenom, String sexe, int age) {
         this.icone = icone;
         this.nom = nom;
         this.prenom = prenom;
-        this.isfille = isfille;
+        this.sexe = sexe;
         this.age = age;
     }
 
@@ -46,12 +45,12 @@ public class Eleve {
         this.prenom = prenom;
     }
 
-    public boolean isIsfille() {
-        return isfille;
+    public String getSexe() {
+        return sexe;
     }
 
-    public void setIsfille(boolean isfille) {
-        this.isfille = isfille;
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
 
     public int getAge() {

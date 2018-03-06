@@ -5,26 +5,29 @@
  */
 package mvctest;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  *
- * @author skaering
+ * @author Nathan
  */
 public class Vue extends JFrame {
+    private Tableau modele = new Tableau();
     private JTable tableau;
-    private JPanel tableauZone;
-    private String[] columnNames;
-    private Object[][] data ;
-    private JTable table; 
-public  Vue(){
-
-this.setLocationRelativeTo(null);
-this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-this.setTitle("MVC");
-this.setSize(600,480);
-
-Object[] columns ={"Icone","Nom","Prénom","Sexe","Age"};
-//Object [][] data = fils
-        }
+ 
+    public Vue() {
+        super();
+        tableau = new JTable(modele);
+        getContentPane().add(new JScrollPane(tableau), BorderLayout.CENTER);
+        pack();
+        setVisible(true);
+        
+    }
+    
+    
 }

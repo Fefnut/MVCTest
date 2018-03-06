@@ -16,6 +16,7 @@ public class MVCTest {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Vue vue=new Vue();
     }
     
 }
