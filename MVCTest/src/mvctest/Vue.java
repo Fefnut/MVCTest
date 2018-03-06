@@ -33,12 +33,12 @@ public class Vue extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
         
-        e=new Eleve("/res","PAUL","Axelle","Fille","19");
+        //e=new Eleve("/res","PAUL","Axelle","Fille","19");
 
                 // création de l'adaptateur, pour avoir un TreeModel sur l'arbre
         model = new Arborescence(racine);
         tableau = new JTable(modele);
-        formulaire =new PanelFormEl(e);
+        //formulaire =new PanelFormEl(e);
          
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -87,16 +87,29 @@ public class Vue extends JFrame {
             // do some actions here, for example
             // print first column value from selected row
             int x = tableau.getSelectedRow();
-            //if (x != -1){ 
-               System.out.println("Coucou");
-               e=new Eleve("/res","PAUL","Axelle","Fille","19");
-               e.setIcone(tableau.getModel().getValueAt(x,0).toString()); 
-               e.setNom(tableau.getModel().getValueAt(x,1).toString()); 
-               e.setPrenom(tableau.getModel().getValueAt(x,2).toString()); 
-               e.setSexe(tableau.getModel().getValueAt(x,3).toString()); 
-               e.setAge(tableau.getModel().getValueAt(x,4).toString());
-               formulaire =new PanelFormEl(e);
+            if (x != -1){ 
                setVisible(false);
+               pack();
+               System.out.println("Coucou");
+               e=new Eleve(tableau.getModel().getValueAt(x,0).toString(),tableau.getModel().getValueAt(x,1).toString(),tableau.getModel().getValueAt(x,2).toString(),tableau.getModel().getValueAt(x,3).toString(),tableau.getModel().getValueAt(x,4).toString());
+               //e=new Eleve();
+               /*e.setIcone(tableau.getModel().getValueAt(x,0).toString()); 
+               e.setNom(tableau.getModel().getValueAt(x,1).toString());*/
+               System.out.println(e.getNom());
+               /*e.setPrenom(tableau.getModel().getValueAt(x,2).toString()); 
+               e.setSexe(tableau.getModel().getValueAt(x,3).toString()); 
+               e.setAge(tableau.getModel().getValueAt(x,4).toString());*/
+               //try{remove(formulaire);}
+               //catch(Exception e){};
+               //remove(rightArea);
+               //rightArea=new JPanel();
+               //rightArea.setLayout(new BorderLayout());
+               formulaire =new PanelFormEl(e);
+               try{formulaire.revalidate();}
+               catch(Exception e){};
+               rightArea.add(formulaire,BorderLayout.CENTER);
+               rightArea.add(tableau,BorderLayout.SOUTH);
+               setContentPane(rightArea);
                pack();
                setVisible(true);
                //remove(formulaire);
@@ -108,7 +121,7 @@ public class Vue extends JFrame {
                //rightArea.add(tableau,BorderLayout.SOUTH);
                //rightArea.add(formulaire,BorderLayout.CENTER);
                //this.setContentPane(rightArea);
-            //}
+            }
         }
         });
         ////////////////////////////////////////////////////////////////////////
@@ -116,7 +129,7 @@ public class Vue extends JFrame {
 
         //this.getContentPane().add(new JScrollPane(tableau), BorderLayout.CENTER);
         rightArea.add(tableau,BorderLayout.SOUTH);
-        rightArea.add(formulaire,BorderLayout.CENTER);
+        //rightArea.add(formulaire,BorderLayout.CENTER);
         this.setContentPane(rightArea);
         
         this.pack();
