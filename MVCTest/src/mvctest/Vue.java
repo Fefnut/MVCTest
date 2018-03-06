@@ -21,17 +21,19 @@ public class Vue extends JFrame {
     private JTable tableau;
     private JPanel /*formulaireContent,*/formulaire, rightArea;
     private final TreeModel model;
+    private final Noeud racine;
     //private JTextField fnom,fprenom,fsexe,fage;
     //private JButton save;
     //private Eleve e;
  
     public Vue (Noeud racine) {
         super();
+        this.racine = racine;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
         
                 // création de l'adaptateur, pour avoir un TreeModel sur l'arbre
-        model = new Arborescence(racine);
+        model = new Arborescence(this.racine);
         tableau = new JTable(modele);
         formulaire =new PanelFormEl();
          
@@ -46,21 +48,25 @@ public class Vue extends JFrame {
                     @Override
                     public void valueChanged(TreeSelectionEvent e) {
                              Noeud node = (Noeud)treetree.getLastSelectedPathComponent();
+                        Vue.this.setVisible(false);
+                        if (node.getContenu() == "Ecole"){
 
-        if (node.getContenu() == "Ecole"){
-            System.out.println("Racine");
-        }else if (node.isFeuille()){
-            System.out.println("Feuille");
-        }else{
-            Vue.this.setVisible(false);
-            System.out.println("Noeud");
-            modele.showClass(node);
-            tableau.setModel(modele);
-            Vue.this.pack();            
-            Vue.this.setVisible(true);
-        }
-    }
-});
+                            System.out.println("Racine");
+                            }else if (node.isFeuille()){
+                            Vue.this.setVisible(false);
+                            System.out.println("Feuille");
+
+                        }else{
+                            Vue.this.setVisible(false);
+                            System.out.println("Noeud");
+                            modele.showClass(node, racine);
+                            tableau.setModel(modele);
+                        }
+
+                        Vue.this.pack();            
+                        Vue.this.setVisible(true);
+                    }
+                    });
             }
         });
                 

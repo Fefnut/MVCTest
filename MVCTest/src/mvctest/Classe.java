@@ -46,7 +46,7 @@ public class Classe {
     
     @Override
     public String toString(){
-        return "Classe de niveau " + niveau + " prof : " + profResp;
+        return niveau;
     }
     
 }

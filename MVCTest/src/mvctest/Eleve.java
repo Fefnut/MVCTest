@@ -63,7 +63,7 @@ public class Eleve {
     
     @Override
     public String toString (){
-        return "Eleve : " + nom + " " + prenom;
+        return nom + " " + prenom;
     }
     
     

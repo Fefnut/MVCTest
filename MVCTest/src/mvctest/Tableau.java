@@ -20,6 +20,10 @@ public class Tableau extends AbstractTableModel {
  
     public Tableau() {
         super();
+        Eleve elev = new Eleve("", "", "", "", 0);
+        for (int i = 0; i<3; i++){
+            this.addEleve(elev);
+        }
     }
  
     public int getRowCount() {
@@ -63,15 +67,14 @@ public class Tableau extends AbstractTableModel {
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
     
-    public void showClass (Noeud laClasse){
+    public void showClass (Noeud laClasse, Noeud racine){
         int nbEleve = laClasse.getNbfils();
         Eleve eleveTemp;
-        ArrayList<Eleve> tempList = new ArrayList<Eleve>();
+        eleves.clear();
         for (int i=0; i<nbEleve; i++){
             eleveTemp = (Eleve)laClasse.getEnfantNum(i).getContenu();
             System.out.println(eleveTemp);
-            tempList.add(eleveTemp);
+            eleves.add(eleveTemp);
         }
-        eleves=tempList;
     }
 }
