@@ -14,12 +14,13 @@ import javax.swing.table.AbstractTableModel;
  * @author Nathan
  */
 public class Tableau extends AbstractTableModel {
-    private final List<Eleve> eleves = new ArrayList<Eleve>();
+    private List<Eleve> eleves = new ArrayList<Eleve>();
  
     private final String[] entetes = {"Icone", "Nom", "Prenom", "Sexe", "Age"};
  
     public Tableau() {
         super();
+
  
         eleves.add(new Eleve("/resources", "MARY","Nathan","Garcon","20"));
         eleves.add(new Eleve("/resources", "JEAN","Paul", "Garcon","22"));
@@ -64,5 +65,17 @@ public class Tableau extends AbstractTableModel {
         eleves.remove(rowIndex);
  
         fireTableRowsDeleted(rowIndex, rowIndex);
+    }
+    
+    public void showClass (Noeud laClasse){
+        int nbEleve = laClasse.getNbfils();
+        Eleve eleveTemp;
+        ArrayList<Eleve> tempList = new ArrayList<Eleve>();
+        for (int i=0; i<nbEleve; i++){
+            eleveTemp = (Eleve)laClasse.getEnfantNum(i).getContenu();
+            System.out.println(eleveTemp);
+            tempList.add(eleveTemp);
+        }
+        eleves=tempList;
     }
 }
