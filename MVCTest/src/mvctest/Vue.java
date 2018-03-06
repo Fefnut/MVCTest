@@ -23,9 +23,9 @@ public class Vue extends JFrame {
     public Vue() {
         super();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //tableau = new JTable(modele);
-        //this.getContentPane().add(new JScrollPane(tableau), BorderLayout.CENTER);
-        
+        tableau = new JTable(modele);
+        this.getContentPane().add(new JScrollPane(tableau), BorderLayout.CENTER);
+        /*
         e = new Eleve("/resources", "Paul", "Axelle", "Fille", 19);
         
         JLabel lnom=new JLabel("Nom");
@@ -59,11 +59,9 @@ public class Vue extends JFrame {
         formulaire.setLayout(new BorderLayout());
         formulaire.add(formulaireContent,BorderLayout.CENTER);
         formulaire.add(save,BorderLayout.SOUTH);
-        this.setContentPane(formulaire);
-        
+*/
         this.pack();
         this.setVisible(true);
     }
-    
     
 }

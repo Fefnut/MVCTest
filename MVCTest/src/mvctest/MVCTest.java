@@ -18,6 +18,9 @@ import javax.swing.tree.TreeModel;
 public class MVCTest {
 
     public static void main(String[] args) {
+        
+        
+        
         // creation de l'arbre, uniquement à l'aide de la classe Noeud
         
         Classe class1=new Classe("CP", "Jean Louis");
@@ -71,10 +74,6 @@ public class MVCTest {
         }else{
             System.out.println("Noeud");
         }
-
-    /* retrieve the node that was selected */ 
-        //Object nodeInfo = node.getUserObject();
-    /* React to the node selection. */
     }
 });
                 fenetre.pack();
@@ -83,7 +82,6 @@ public class MVCTest {
         });
         
         
-        // TODO code application logic here
-        Vue vue=new Vue();
+
     }
 }
