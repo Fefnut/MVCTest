@@ -11,4 +11,30 @@ package mvctest;
  */
 public class Classe {
     
+    private String niveau, profResp;
+    private int nbEleves;
+
+    public Classe(String niveau, String profResp) {
+        this.niveau = niveau;
+        this.profResp = profResp;
+    }
+
+    public String getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        this.niveau = niveau;
+    }
+
+    public String getProfResp() {
+        return profResp;
+    }
+
+    public void setProfResp(String profResp) {
+        this.profResp = profResp;
+    }
+    
+    
+    
 }
