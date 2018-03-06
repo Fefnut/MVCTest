@@ -81,7 +81,7 @@ public class MVCTest {
             }
         });
         
-        
+        Vue vue = new Vue();
 
     }
 }
