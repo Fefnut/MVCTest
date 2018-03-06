@@ -16,8 +16,10 @@ import java.util.ArrayList;
 public class Noeud {
     private final Object contenu;
     private final ArrayList<Noeud> fils;
+    private String newLine;
 
     public Noeud(Object cont) {
+        newLine = System.getProperty("line.separator");
         this.contenu = cont;
         this.fils = new ArrayList<Noeud>();
     }
@@ -61,7 +63,7 @@ public class Noeud {
             toReturn+= contenu.toString()+", ";
         }
         else{
-            toReturn += contenu.toString() + "\n";
+            toReturn += contenu.toString() + newLine;
             for (Noeud fifi : fils){
                 toReturn+=fifi.sousArbre() + " | ";
             }

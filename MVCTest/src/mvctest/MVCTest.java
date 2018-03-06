@@ -10,6 +10,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
+import javax.swing.event.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 
 
@@ -54,11 +56,33 @@ public class MVCTest {
                 // NB : le JTree fait simplement référence au modèle
                 JFrame fenetre = new JFrame("Test arbres");
                 fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                fenetre.add(new JScrollPane(new JTree(modele)), BorderLayout.CENTER);
+                JTree treetree = new JTree(modele);
+                fenetre.add(new JScrollPane(treetree), BorderLayout.CENTER);
+                treetree.addTreeSelectionListener(new TreeSelectionListener() {
+                    @Override
+                    public void valueChanged(TreeSelectionEvent e) {
+                             Noeud node = (Noeud)treetree.getLastSelectedPathComponent();
+
+    /* if nothing is selected */ 
+        if (node.getContenu() == "Ecole"){
+            System.out.println("Racine");
+        }else if (node.isFeuille()){
+            System.out.println("Feuille");
+        }else{
+            System.out.println("Noeud");
+        }
+
+    /* retrieve the node that was selected */ 
+        //Object nodeInfo = node.getUserObject();
+    /* React to the node selection. */
+    }
+});
                 fenetre.pack();
                 fenetre.setVisible(true);
             }
         });
+        
+        
         // TODO code application logic here
         Vue vue=new Vue();
     }
