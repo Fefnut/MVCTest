@@ -14,9 +14,18 @@ public class Classe {
     private String niveau, profResp;
     private int nbEleves;
 
-    public Classe(String niveau, String profResp) {
+    public Classe(String niveau, String profResp, int nbEleves) {
         this.niveau = niveau;
         this.profResp = profResp;
+        this.nbEleves=nbEleves;
+    }
+
+    public int getNbEleves() {
+        return nbEleves;
+    }
+
+    public void setNbEleves(int nbEleves) {
+        this.nbEleves = nbEleves;
     }
 
     public String getNiveau() {

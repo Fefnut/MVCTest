@@ -20,8 +20,8 @@ public class MVCTest {
     public static void main(String[] args) {
         // creation de l'arbre, uniquement à l'aide de la classe Noeud
         
-        Classe class1=new Classe("CP", "Jean Louis");
-        Classe class2=new Classe("MS", "Pierre Yves");
+        Classe class1=new Classe("CP", "Jean Louis" ,15);
+        Classe class2=new Classe("MS", "Pierre Yves",20);
         
         Eleve eleve1=new Eleve("/image/bidon", "Delap", "Lou", "male", 22);
         Eleve eleve2=new Eleve("/image/bidon", "Mar", "Nath", "male", 20);

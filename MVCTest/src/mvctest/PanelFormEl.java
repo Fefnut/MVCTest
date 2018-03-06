@@ -15,7 +15,7 @@ import javax.swing.*;
  * @author Nathan
  */
 public class PanelFormEl extends JPanel{
-    private JPanel formulaireContent,formulaire;
+    private JPanel formulaireContent;
     private JTextField fnom,fprenom,fsexe,fage;
     private JButton save;
     private Eleve e;
