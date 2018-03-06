@@ -35,6 +35,9 @@ public class Classe {
         this.profResp = profResp;
     }
     
-    
+    @Override
+    public String toString(){
+        return "Classe de niveau " + niveau + " prof : " + profResp;
+    }
     
 }

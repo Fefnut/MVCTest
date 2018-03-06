@@ -61,6 +61,10 @@ public class Eleve {
         this.age = age;
     }
     
+    @Override
+    public String toString (){
+        return "Eleve : " + nom + " " + prenom;
+    }
     
     
 }
