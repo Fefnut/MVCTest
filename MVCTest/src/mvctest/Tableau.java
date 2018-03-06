@@ -21,8 +21,8 @@ public class Tableau extends AbstractTableModel {
     public Tableau() {
         super();
  
-        eleves.add(new Eleve("/resources", "MARY","Nathan","Garcon",20));
-        eleves.add(new Eleve("/resources", "JEAN","Paul", "Garcon",22));
+        eleves.add(new Eleve("/resources", "MARY","Nathan","Garcon","20"));
+        eleves.add(new Eleve("/resources", "JEAN","Paul", "Garcon","22"));
     }
  
     public int getRowCount() {

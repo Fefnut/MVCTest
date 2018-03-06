@@ -8,21 +8,22 @@ package mvctest;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.*;
 import javax.swing.*;
 
 /**
  *
  * @author Nathan
  */
-public class PanelFormEl extends JPanel{
+public class PanelFormEl extends JPanel implements ActionListener{
     private JPanel formulaireContent;
     private JTextField fnom,fprenom,fsexe,fage;
     private JButton save;
     private Eleve e;
     
-    public PanelFormEl(){
-        e = new Eleve("/resources", "Paul", "Axelle", "Fille", 19);
-        
+    public PanelFormEl(Eleve el){
+        //e = new Eleve("/resources", "Paul", "Axelle", "Fille", 19);
+        this.e=new Eleve(el.getIcone(),el.getNom(),el.getPrenom(),el.getSexe(),el.getAge());
         JLabel lnom=new JLabel("Nom");
         JLabel lprenom=new JLabel("Prénom");
         JLabel lsexe=new JLabel("Sexe");
@@ -34,7 +35,7 @@ public class PanelFormEl extends JPanel{
         fnom = new JTextField(e.getNom());
         fprenom = new JTextField(e.getPrenom());
         fsexe = new JTextField(e.getSexe());
-        fage = new JTextField(Integer.toString(e.getAge()));
+        fage = new JTextField(e.getAge());
         fnom.setPreferredSize(new Dimension(150,20));
         fprenom.setPreferredSize(new Dimension(150,20));
 
@@ -54,5 +55,13 @@ public class PanelFormEl extends JPanel{
         this.setLayout(new BorderLayout());
         this.add(formulaireContent,BorderLayout.CENTER);
         this.add(save,BorderLayout.SOUTH);
+        
+        save.addActionListener(this);
+    }
+    
+    public void actionPerformed (ActionEvent ae){
+        e.setNom(fnom.getText());
+        e.setPrenom(fprenom.getText());
+        //e.setAge(fage.getAge());
     }
 }

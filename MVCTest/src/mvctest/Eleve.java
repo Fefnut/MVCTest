@@ -10,10 +10,9 @@ package mvctest;
  * @author Nathan
  */
 public class Eleve {
-    private String icone,nom,prenom,sexe;
-    private int age;
+    private String icone,nom,prenom,sexe,age;
 
-    public Eleve(String icone, String nom, String prenom, String sexe, int age) {
+    public Eleve(String icone, String nom, String prenom, String sexe, String age) {
         this.icone = icone;
         this.nom = nom;
         this.prenom = prenom;
@@ -53,11 +52,11 @@ public class Eleve {
         this.sexe = sexe;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
     
